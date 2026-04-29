@@ -1,4 +1,8 @@
 #pragma once
+
+#include <assert.h>
+#include <stdio.h>
+
 #define ANSI_BOLD  "\x1b[1m"
 #define ANSI_RED   "\x1b[31m"
 #define ANSI_GREEN "\x1b[32m"
@@ -16,18 +20,9 @@ static int _total = 0;
     if ((b)) printf(PASS_STR " %s.\n", name); \
     else { \
         _failed++; \
-        printf(FAIL_STR " %s: ", name); \
+        printf(FAIL_STR " %s ", name); \
         printf(__VA_ARGS__); \
-    } \
-} while (0)
-
-#define CHECK_NOT_NULL(ptr, name, ...) do {\
-    _total++; \
-    if ((ptr)) printf(PASS_STR " %s.\n", name); \
-    else { \
-        _failed++; \
-        printf(FAIL_STR " %s: ", name); \
-        printf(__VA_ARGS__); \
+        printf("\n");\
     } \
 } while (0)
 

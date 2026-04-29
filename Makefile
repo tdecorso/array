@@ -1,6 +1,6 @@
 all: test
 
-test: array.h test.c
+test: array.h test.h test.c
 	gcc -g test.c -o test
 
 clean:
