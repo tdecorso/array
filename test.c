@@ -23,7 +23,7 @@ int main(void) {
         CHECK_BOOL(
             ARRAY_COUNT(numbers) == 0,
             "Array count is 0 at initialization", 
-            "(%zu != %zu)", (size_t)0, ARRAY_COUNT(numbers)
+            ""
         );
 
         ARRAY_FREE(numbers);
@@ -32,7 +32,7 @@ int main(void) {
         CHECK_BOOL(
             ARRAY_CAPACITY(numbers) == 5,
             "Array capacity matches given input value", 
-            "(%zu != %zu)", (size_t)8, ARRAY_CAPACITY(numbers)
+            ""
         );
     };
 
@@ -61,7 +61,7 @@ int main(void) {
         CHECK_BOOL(
             ARRAY_CAPACITY(numbers) == 10,
             "Array capacity doubling",
-            "%zu != %zu", ARRAY_CAPACITY(numbers), (size_t)10
+            ""
         );
 
         bool match = 1;
