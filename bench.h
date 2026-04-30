@@ -61,6 +61,5 @@ static inline double bench_percentile(long* sorted, int n, double p) {
         printf("  p50 : %6.2f ns\n", p50);                                     \
         printf("  p90 : %6.2f ns\n", p90);                                     \
         printf("  p99 : %6.2f ns\n", p99);                                     \
-        printf("\n\n");                                                        \
         free(_samples);                                                        \
     } while (0)

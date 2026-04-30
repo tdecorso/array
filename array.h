@@ -64,3 +64,8 @@ typedef struct {
     (ptr) = (void*) (nh + 1); \
 } while (0)
     
+// Resets array count to zero. Safe on NULL pointers.
+#define ARRAY_CLEAR(ptr) do { \
+    if (!(ptr)) break; \
+    ARRAY_HEADER((ptr))->count = 0; \
+} while (0)
