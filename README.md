@@ -47,11 +47,11 @@ gcc bench.c -o bench && ./bench
 
 Measured over 1e6 iterations with 100 warmup cycles:
 
-| Operation               |   p50   |   p90     |   p99    |
-| ----------------------- | ------- | --------  | -------- | 
-| Alloc + Free            | 9.62 ns |  10.2 ns  | 10.2  ns |
-| Append (no resize, 100) | 1.71 µs |   2.17 µs |  4.30 µs |
-| Append (resize, 1000)   | 2.06 µs |   3.64 µs |  4.89 µs |
+| Operation                 |    p50   |   p90     |    p99    |
+| -----------------------   | -------- | --------  | --------- | 
+| Alloc + Free              | 08.19 ns | 08.85 ns  | 009.92 ns |
+| Append (no resize, 10000) | 16.34 µs | 17.94 µs  | 034.57 µs |
+| Append (resize, 10000)    | 20.46 µs | 23.07 µs  | 186.43 µs |
 
 
 
