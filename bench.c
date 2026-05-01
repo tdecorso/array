@@ -10,27 +10,27 @@ volatile int sink = 0;
 int main(void) {
     int* numbers;
 
-    BENCH("Array alloc+free", ITERS, WARMUP, BATCH, {
+    BENCH("Array alloc+free", ITERS, BATCH, WARMUP, {
         ARRAY(numbers, 100);
         numbers[0] = 1;
         sink += numbers[0];
         ARRAY_FREE(numbers);
     });
 
-    ARRAY(numbers, 100);
+    ARRAY(numbers, 10000);
 
-    BENCH("Array append (no resize)", ITERS, WARMUP, 1, {
+    BENCH("Array append (no resize)", ITERS, 1, WARMUP, {
         ARRAY_CLEAR(numbers);
-        for (int i = 0; i < 100; ++i) {
+        for (int i = 0; i < 10000; ++i) {
             ARRAY_APPEND(numbers, i);
             sink += numbers[i];
         }
     });
 
-    BENCH("Array append (resize)", ITERS, WARMUP, 1, {
+    BENCH("Array append (resize)", ITERS, 1, WARMUP, {
         ARRAY_FREE(numbers);
         ARRAY(numbers, 10);
-        for (int i = 0; i < 1000; ++i) {
+        for (int i = 0; i < 10000; ++i) {
             ARRAY_APPEND(numbers, i);
             sink += numbers[i];
         }
